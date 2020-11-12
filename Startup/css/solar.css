@@ -1,0 +1,293 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+  }
+  
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  
+  body {background: black url("http://space-facts.com/wp-content/uploads/magellanic-clouds.png");
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  blockquote, q {
+    quotes: none; 
+  }
+  
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: none;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  /* Background */
+
+  :root{
+    --orbit: 1rem;
+    --dia: calc((var(--orbit)/2) * -1);
+    --mercury_o: 10;
+    --mercury_orbit: calc(var(--orbit) * var(--mercury_o));
+    --mercury_dia: calc(var(--dia) * var(--mercury_o));
+    --venus_o: 14;
+    --venus_orbit: calc(var(--orbit) * var(--venus_o));
+    --venus_dia: calc(var(--dia) * var(--venus_o));
+    --earth_o: 25;
+    --earth_orbit: calc(var(--orbit) * var(--earth_o));
+    --earth_dia: calc(var(--dia) * var(--earth_o));
+    --mars_o: 40;
+    --mars_orbit: calc(var(--orbit) * var(--mars_o));
+    --mars_dia: calc(var(--dia) * var(--mars_o));
+    --jupiter_o: 65;
+    --jupiter_orbit: calc(var(--orbit) * var(--jupiter_o));
+    --jupiter_dia: calc(var(--dia) * var(--jupiter_o));
+    --saturn_o: 80;
+    --saturn_orbit: calc(var(--orbit) * var(--saturn_o));
+    --saturn_dia: calc(var(--dia) * var(--saturn_o));
+    --uranus_o: 90;
+    --uranus_orbit: calc(var(--orbit) * var(--uranus_o));
+    --uranus_dia: calc(var(--dia) * var(--uranus_o));
+    --neptune_o: 100;
+    --neptune_orbit: calc(var(--orbit) * var(--neptune_o));
+    --neptune_dia: calc(var(--dia) * var(--neptune_o));
+  }  
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+  body {
+    font-size: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    background-color: #08090A;
+  }
+  
+  #universe {
+    z-index: 1;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+    
+  #galaxy {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1.3em;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+  }
+  .planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    border-radius: 50%;
+  }
+  
+  #sun {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .planet {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+  }
+  
+  .pos {
+    position: absolute;
+    border: 1px solid #fff;
+  }
+  
+  .pos {
+    left: 50%;
+    top: -1px; 
+    border: none;
+  }
+  
+  #comet {
+    border: 2px solid transparent;
+    border-bottom: 70px solid #fff;
+    position: absolute;
+    transform-origin: top center;
+    top: -150%;
+    left: 43%;
+    /* opacity: 0; */
+  }
+  
+  #comet:after {
+    content: '';
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    background: #fff;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px 0 #fff;
+  }
+  
+  /* Orbit sizes */
+  #mercury.orbit {
+    width: var(--mercury_orbit);
+    height: var(--mercury_orbit);
+    margin-top: var(--mercury_dia);
+    margin-left: var(--mercury_dia);
+  }
+  #venus.orbit {
+    width: var(--venus_orbit);
+    height: var(--venus_orbit);
+    margin-top: var(--venus_dia);
+    margin-left: var(--venus_dia);
+  }
+  
+  #earth.orbit {
+    width: var(--earth_orbit);
+    height: var(--earth_orbit);
+    margin-top: var(--earth_dia);
+    margin-left: var(--earth_dia);
+  }
+  
+  #mars.orbit {
+    width: var(--mars_orbit);
+    height: var(--mars_orbit);
+    margin-top: var(--mars_dia);
+    margin-left: var(--mars_dia);
+  }
+  #jupiter.orbit {
+    width: var(--jupiter_orbit);
+    height: var(--jupiter_orbit);
+    margin-top: var(--jupiter_dia);
+    margin-left: var(--jupiter_dia);
+  }
+  #saturn.orbit {
+    width: var(--saturn_orbit);
+    height: var(--saturn_orbit);
+    margin-top: var(--saturn_dia);
+    margin-left: var(--saturn_dia);
+  }
+  #uranus.orbit {
+    width: var(--uranus_orbit);
+    height: var(--uranus_orbit);
+    margin-top: var(--uranus_dia);
+    margin-left: var(--uranus_dia);
+  }
+  #neptune.orbit {
+    width: var(--neptune_orbit);
+    height: var(--neptune_orbit);
+    margin-top: var(--neptune_dia);
+    margin-left: var(--neptune_dia);
+  }
+  
+  /* Planet sizes */
+  #sun {
+      font-size: 8rem;
+  }
+  #mercury {
+      font-size: 5rem;
+  }
+  #venus {
+      font-size: 5rem;
+  }
+  #earth {
+    font-size: 5rem;
+  }
+  #mars {
+    font-size:5rem;
+  }
+  #jupiter {
+    font-size: 5rem;
+  }
+  #saturn {
+    font-size: 5rem;
+  }
+  #uranus {
+    font-size: 5rem;
+  }
+  #neptune {
+    font-size: 5rem;
+  }
+  #saturn .ring{
+    width: 2em;
+    height: 2em;
+    margin-top: -1em;
+    margin-left: -1em;
+    border: 0.3em solid rgba(160, 147, 130, 0.7);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+  }
+  
+  /* images */
+  
+  #sun {
+    background-image: url('../img/sun.png');
+  }
+  #mercury .planet{
+    background-image: url('../img/csk.png')
+  }
+  #venus .planet{
+    background-image: url('../img/mi.png')
+  }
+  #earth .planet{
+    background-image: url('../img/kkr.png')
+  }
+  #mars .planet{
+    background-image: url('../img/srh.png')
+  }
+  #jupiter .planet{
+    background-image: url('../img/rr.png')
+  }
+  #saturn .planet{
+    background-image: url('../img/dc.png')
+  }
+  #uranus .planet{
+    background-image: url('../img/kxip.png')
+  }
+  #neptune .planet{
+    background-image: url('../img/rcb.png')
+  }
+  
+  
+  body {
+background: black url("http://space-facts.com/wp-content/uploads/magellanic-clouds.png");  }  
